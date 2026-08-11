@@ -6,3 +6,15 @@ resource "kubernetes_namespace_v1" "example" {
 
   }
 }
+resource "kubernetes_resource_quota_v1" "pod_limit" {
+  metadata {
+    name      = "pod-limit"
+    namespace = kubernetes_namespace_v1.example.metadata[0].name
+  }
+
+  spec {
+    hard = {
+      pods = "100"
+    }
+  }
+}
