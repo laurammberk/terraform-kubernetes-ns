@@ -14,7 +14,7 @@ resource "kubernetes_resource_quota_v1" "pod_limit" {
 
   spec {
     hard = {
-      pods = "100"
+      pods = var.pods
     }
   }
 }
