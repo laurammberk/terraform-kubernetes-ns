@@ -26,4 +26,31 @@ variable pods {
   default     = 100
 }
 
+variable PodLimit {
+  description = "Please specify pod resource limit"
+  type        = map(any)
+  default     = {
+    cpu    = "500m"
+    memory = "1024Mi"
+  
+  }
+}
 
+variable PVCLimit {
+  description = "Please specify PersistentVolumeClaim imit"
+  type        = map(any)
+  default     = {
+    storage = "2G"
+  
+  }
+}
+
+variable ContainerLimit {
+  description = "Please specify Container imit"
+  type        = map(any)
+  default     = {
+    cpu    = "500m"
+    memory = "1024Mi"
+  
+  }
+}

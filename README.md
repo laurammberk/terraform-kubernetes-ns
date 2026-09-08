@@ -24,6 +24,17 @@ module "ns-demo" {
 This module automatically creates a Kubernetes ResourceQuota for each namespace created by the module.
 
 Each namespace is limited to a maximum of **100 pods**. Kubernetes will reject attempts to create additional pods once the limit of 100 pods has been reached.
+ContainerLimit = {
+  cpu    = "500m"
+  memory = "1024Mi"
+}
+ PodLimit {
+    cpu    = "500m"
+    memory = "1024Mi"
+  }
+ PVCLimit {
+    storage = "2G"
+ }
 
 ### Run
 
