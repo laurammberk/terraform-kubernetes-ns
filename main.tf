@@ -1,4 +1,4 @@
-resource "kubernetes_namespace_v1" "example" {
+resource "kubernetes_namespace_v1" "this" {
   metadata {
     annotations = var.annotations
     labels      = var.labels
@@ -6,10 +6,10 @@ resource "kubernetes_namespace_v1" "example" {
 
   }
 }
-resource "kubernetes_resource_quota_v1" "pod_limit" {
+resource "kubernetes_resource_quota_v1" "this" {
   metadata {
-    name      = "pod-limit"
-    namespace = kubernetes_namespace_v1.example.metadata[0].name
+    name      = "pod-quota"
+    namespace = kubernetes_namespace_v1.this.metadata[0].name
   }
 
   spec {
