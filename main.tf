@@ -16,7 +16,6 @@ resource "kubernetes_resource_quota_v1" "this" {
     hard = {
       pods = var.pods
     }
-    scopes = [ "BestEffort" ]
   }
 }
 
